@@ -1,16 +1,20 @@
+import { addDoc, collection } from "firebase/firestore";
 import { createContext, useState } from "react";
+import { db } from "../firebaseConfig";
+
 
 export const GoalsContext = createContext()
 
-export function GoalsProvider({childern}) {
+export function GoalsProvider({children}) {
 const [ goals, setGoals] = useState([])
     
     async function fetchGoals() {
         
     }
 
-    async function createGoal() {
-        
+    async function createGoal(goalsData) {
+        // console.log(goalsData)
+        await addDoc(collection(db, 'goals'), goalsData)
     }
 
     async function deleteGoal() {
@@ -22,11 +26,11 @@ const [ goals, setGoals] = useState([])
     }
 
     return(
-        <GoalContext.Provider
+        <GoalsContext.Provider
         value={{goals, fetchGoals, createGoal, deleteGoal, updataGoal}}
         >
 
-            {childern}
-        </GoalContext.Provider>
+            {children}
+        </GoalsContext.Provider>
     )
 }
