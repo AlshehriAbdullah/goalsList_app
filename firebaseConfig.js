@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
@@ -8,8 +8,8 @@ const firebaseConfig = {
   storageBucket: "goals-app-4edb3.firebasestorage.app",
   messagingSenderId: "40344776867",
   appId: "1:40344776867:web:2ecb6990953b781f118f16"
-};
-
+}
 
 const app = initializeApp(firebaseConfig)
+
 export const db = getFirestore(app)
