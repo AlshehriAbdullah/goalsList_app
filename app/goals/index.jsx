@@ -7,10 +7,12 @@ import Slider from '@react-native-community/slider'
 const Goals = () => {
   const { goals, updateGoal, deleteGoal } = useGoals()
   const [selected, setSelected] = useState()
+  const [sliderValue, setSliderValue] = useState(0);
+  
   const handleProgressChange = async (value) => {
       await updateGoal(selected.id, {progress: value})
   }
-  const [sliderValue, setSliderValue] = useState(0);
+
   const handleDelete = async () => {
     await deleteGoal(selected.id)
     setSelected(null)

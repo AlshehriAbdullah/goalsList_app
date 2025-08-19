@@ -17,9 +17,9 @@ export function GoalsProvider({ children }) {
     setGoals(documents)
   }
 
-  async function fetchGoalById() {
+  // async function fetchGoalById() {
 
-  }
+  // }
   
   async function createGoal(goalData) {
     console.log(goalData)
@@ -47,7 +47,7 @@ export function GoalsProvider({ children }) {
 
   return (
     <GoalsContext.Provider 
-      value={{ goals, fetchGoals, fetchGoalById, createGoal, deleteGoal, updateGoal }}
+      value={{ goals, fetchGoals, createGoal, deleteGoal, updateGoal }}
     >
       {children}
     </GoalsContext.Provider>
